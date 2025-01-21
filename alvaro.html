@@ -4,29 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Past Exercises</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS para estilos -->
-    <script src="verbs.js" defer></script> <!-- Archivo JS para verbos -->
-    <script src="phrases.js" defer></script> <!-- Archivo JS para frases -->
-    <script src="static.js" defer></script> <!-- Archivo JS para ejercicio estático -->
-    <script src="main.js" defer></script> <!-- Archivo principal para lógica general -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Dynamic Past Exercises</h1>
-    </header>
-    <main>
-        <!-- Botones para generar ejercicios -->
-        <div id="buttons-container">
-            <button onclick="generateExercises('verbs')">Generate Verb Exercises</button>
-            <button onclick="generateExercises('phrases')">Generate Phrase Exercises</button>
-            <button onclick="generateExercises('static')">Generate Static Exercise</button>
-        </div>
-
-        <!-- Contenedor para mostrar los ejercicios -->
-        <div id="exercise-container"></div>
-    </main>
-    <footer>
-        <p>&copy; 2025 Dynamic Past Exercises. All rights reserved.</p>
-    </footer>
+    <h1>Dynamic Past Exercises</h1>
+    <p>Elige un tipo de ejercicio:</p>
+    <ul>
+        <li><a href="verbs.html">Ejercicios de Verbos</a></li>
+        <li><a href="phrases.html">Ejercicios con Frases</a></li>
+        <li><a href="static.html">Ejercicios Estáticos</a></li>
+    </ul>
 </body>
 </html>
