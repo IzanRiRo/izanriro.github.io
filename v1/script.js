@@ -44,92 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  const modal = document.getElementById("experienceModal")
-  const modalBody = document.getElementById("modalBody")
-  const closeModal = document.querySelector(".modal-close")
-
-  const experienceData = {
-    current: {
-      title: "Desarrollador Full Stack",
-      company: "Infoware",
-      date: "Octubre 2024 - Actualidad",
-      description:
-        "Actualmente trabajo creando páginas web en PHP y WordPress, aplicaciones a medida para clientes utilizando Laravel, Symfony o .NET. He aprendido muchas tecnologías diferentes, pero sobre todo a adaptarme a cualquier tipo de tarea.",
-      technologies: ["PHP", "WordPress", "Laravel", "Symfony", ".NET"],
-      achievements: [
-        "Desarrollo de aplicaciones web personalizadas",
-        "Implementación de soluciones escalables",
-        "Adaptación rápida a nuevas tecnologías",
-      ],
-    },
-    nayar: {
-      title: "Desarrollador Full Stack",
-      company: "Nayar (Prácticas TFG)",
-      date: "3 meses",
-      description:
-        "Desarrollo de una aplicación web en Flutter y Go para la empresa durante 3 meses, aprendiendo de su forma de trabajar y desarrollando mi habilidad para adaptarme a nuevas tecnologías.",
-      technologies: ["Flutter", "Go", "Web Development"],
-      achievements: [
-        "Primera experiencia profesional en desarrollo",
-        "Aprendizaje de metodologías empresariales",
-        "Desarrollo con tecnologías modernas",
-      ],
-    },
-    audio: {
-      title: "Técnico de Sonido y Audiovisuales",
-      company: "Freelance",
-      date: "Varios años",
-      description:
-        "Durante varios años he colaborado como técnico de sonido responsable en diferentes actividades, festivales, conciertos. Técnico para la Escuela de Música y diferentes cómicos como Galder Varas, Monaguillo, David Puerto o Miguel Lago.",
-      technologies: ["Audio Engineering", "Live Sound", "Event Management"],
-      achievements: [
-        "Trabajo con artistas reconocidos",
-        "Gestión técnica de eventos en vivo",
-        "Experiencia en producción audiovisual",
-      ],
-    },
-  }
-
-  // Add click event to experience buttons
-  document.querySelectorAll(".experience-btn").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const card = e.target.closest(".experience-card")
-      const experienceKey = card.dataset.experience
-      const data = experienceData[experienceKey]
-
-      if (data) {
-        modalBody.innerHTML = `
-          <h2>${data.title}</h2>
-          <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">${data.company}</h3>
-          <p style="color: var(--accent-color); font-weight: 600; margin-bottom: 1rem;">${data.date}</p>
-          <p style="margin-bottom: 1.5rem; line-height: 1.6;">${data.description}</p>
-          
-          <h4 style="margin-bottom: 0.75rem;">Tecnologías utilizadas:</h4>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-            ${data.technologies.map((tech) => `<span style="background: var(--light-green); color: var(--primary-color); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: 0.875rem;">${tech}</span>`).join("")}
-          </div>
-          
-          <h4 style="margin-bottom: 0.75rem;">Logros destacados:</h4>
-          <ul style="margin-left: 1.5rem; line-height: 1.6;">
-            ${data.achievements.map((achievement) => `<li style="margin-bottom: 0.5rem;">${achievement}</li>`).join("")}
-          </ul>
-        `
-        modal.style.display = "block"
-      }
-    })
-  })
-
-  // Close modal events
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none"
-  })
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none"
-    }
-  })
-
   // Intersection Observer for scroll animations (fallback)
   if (!CSS.supports("animation-timeline: scroll()")) {
     const observerOptions = {
@@ -163,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const originalText = submitBtn.textContent
 
     // Show loading state
-    submitBtn.innerHTML = "Enviando..."
+    submitBtn.innerHTML = '<span class="loading"></span> Enviando...'
     submitBtn.disabled = true
 
     // Simulate form submission (replace with actual form handling)
